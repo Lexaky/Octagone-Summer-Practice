@@ -7,7 +7,7 @@
     "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "Alexey Streltsov",
+  "author": "Streltsov Alexey",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.1.4"
