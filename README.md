@@ -1,0 +1,9 @@
+![изображение](https://github.com/Lexaky/octagoneLab1/assets/28297776/67002110-36b4-4baf-ab57-31643fc9f690)
+/static
+![изображение](https://github.com/Lexaky/octagoneLab1/assets/28297776/bd320d33-e82e-41bd-9534-14934780cf8c)
+a=1&b=2&c=3
+![изображение](https://github.com/Lexaky/octagoneLab1/assets/28297776/29cc6a91-038f-48a9-bce5-116fc171fefd)
+a=3&b=2&c=1
+![изображение](https://github.com/Lexaky/octagoneLab1/assets/28297776/13f7405a-d76d-4d11-9226-b04329ef8da1)
+a=octagone&b=2&c=1
+![изображение](https://github.com/Lexaky/octagoneLab1/assets/28297776/2abdd76a-2da0-42b2-b42d-bc77eee1190a)
