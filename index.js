@@ -9,8 +9,8 @@ const isNumber = (value) => {
 };
 
 //Маршрут для корня '/' (1-ое задание)
-app.get('/', (req, res) => {
-  res.send('<h1>Привет, Октагон!</h1>');
+app.get('/', (request, response) => {
+  response.send('<h1>Привет, Октагон!</h1>');
 });
 
 //static возвращает json с "Hello" в Header и "Octagon NodeJS Test" в body
