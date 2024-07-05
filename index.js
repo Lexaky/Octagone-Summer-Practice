@@ -24,24 +24,20 @@ app.use("/static", function(request, response){
 //dynamic возвращает json с результатом (a*b*c)/3, если a, b, c существуют
 app.get('/dynamic', (request, response) => {
     const { a, b, c } = request.query;
-    if (isNumber(a) && isNumber(b) && isNumber(c)) {
-		//parseFloat - cast в тип float 
-        const aNum = parseFloat(a);
-        const bNum = parseFloat(b);
-        const cNum = parseFloat(c);
-        
-        const result = (aNum * bNum * cNum) / 3;
-        
-        response.json({
-            header: "Calculated",
-            body: result.toString()
-        });
-    } else {
-		//Если a или b или c - NaN или после trim length = 0
-        response.json({
-            header: "Error"
-        });
-    }
+	const values = [a, b, c];
+	let result = 1;
+	for (const value of values) {
+		if (!isNumber(value)) {
+			response.json({ header: "Error" });
+		}
+		result *= parseFloat(value);
+	}
+	result /= 3;
+
+	response.json({
+		header: "Calculated",
+		body: result.toString()
+	});
 });
 
 //Прослушивание порта port
