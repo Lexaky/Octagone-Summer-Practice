@@ -76,7 +76,6 @@ app.post('/addItem', (request, response) => {
     }
 	
 	//Вывод результата вставки
-	const selectQuery = 'SELECT * FROM items WHERE id = ?';
 	selectAllWithId(results.insertId, {}, response);
   });
 });
