@@ -86,7 +86,7 @@ app.post('/deleteItem', (request, response) => {
 	
 	//Проверка на существование
 	if (!strId) {
-		res.status(400).send("ID не предоставлен");
+		response.status(400).send("ID не предоставлен");
 		return;
 	}
 	//Cast в число
@@ -94,10 +94,10 @@ app.post('/deleteItem', (request, response) => {
 	
 	//Если после каста NaN, то ошибка клиента
 	if (isNaN(id)) {
-		res.status(400).send("ID не является числом");
+		response.status(400).send("ID не является числом");
 		return;
 	}
-	
+	selectAllWithId(id, {}, response);
 	//Запрос к БД на удаление элементов с условием совпадения с id
 	const deleteQuery = 'DELETE FROM items WHERE id = ?';
 	connection.query(deleteQuery, [id], (error, results, fields) => {
@@ -105,7 +105,7 @@ app.post('/deleteItem', (request, response) => {
 			response.status(500).send(error);
 			return;
 		} else {
-			selectAllWithId(id, {}, response);
+			return;
 		}
 	});
 });
