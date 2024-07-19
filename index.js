@@ -13,10 +13,11 @@ function tell(id, message)
 }
 
 bot.onText(/\/help/, (msg) => {
-    tell(msg.chat.id, "Список команд:\n");
+	let finalText = "Список команд:\n";
 	helpCommands.forEach((cmd) => {
-		tell(msg.chat.id, cmd + "\n");
+		finalText += cmd + "\n";
 	});
+	tell(msg.chat.id, finalText);
 });
 
 bot.onText(/\/site/, (msg) => {
