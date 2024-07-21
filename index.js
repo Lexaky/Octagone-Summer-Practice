@@ -22,6 +22,7 @@ const token = '7345012579:AAEpRCqweK2FLpRMfILGIf4Y9geDkpGdlHw';
 const SCREENSHOTAPI_KEY = '6BE42G4-F6T4YWN-NBRJZCK-F7DEVFN';
 // Создание нового объекта типа TelegramBot
 const bot = new TelegramBot(token, {polling: true});
+
 const helpCommands = ["/site - отправляет в чат ссылку на сайт октагона", 
 					  "/creator - отправляет в чат ФИО разработчика",
 					  "/randomItem - возвращает случайный предмет",
