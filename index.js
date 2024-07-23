@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   database: "chatbottests",
-  password: "12345"
+  password: ""
 });
 
 //Функция подключения к БД по заданным параметрам
@@ -86,7 +86,7 @@ app.post('/deleteItem', (request, response) => {
 	
 	//Проверка на существование
 	if (!strId) {
-		response.status(400).send("ID не предоставлен");
+		response.status(400).send(null);
 		return;
 	}
 	//Cast в число
@@ -94,10 +94,9 @@ app.post('/deleteItem', (request, response) => {
 	
 	//Если после каста NaN, то ошибка клиента
 	if (isNaN(id)) {
-		response.status(400).send("ID не является числом");
+		response.status(400).send(null);
 		return;
 	}
-	selectAllWithId(id, {}, response);
 	//Запрос к БД на удаление элементов с условием совпадения с id
 	const deleteQuery = 'DELETE FROM items WHERE id = ?';
 	connection.query(deleteQuery, [id], (error, results, fields) => {
@@ -105,6 +104,7 @@ app.post('/deleteItem', (request, response) => {
 			response.status(500).send(error);
 			return;
 		} else {
+			response.status(200).send([{}]);
 			return;
 		}
 	});
@@ -116,7 +116,7 @@ app.post('/updateItem', (request, response) => {
 
   // Проверка на существование id, name и desc из строки запроса
   if (!id || !name || !descr) {
-    response.status(400).send("ID, name и desc должны быть предоставлены");
+    response.status(400).send(null);
     return;
   }
 
@@ -124,7 +124,7 @@ app.post('/updateItem', (request, response) => {
 
   // Проверка, является ли id числом
   if (isNaN(numericId)) {
-    response.status(400).send("ID не является числом");
+    response.status(400).send(null);
     return;
   }
 
@@ -150,4 +150,3 @@ app.post('/updateItem', (request, response) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
-
